@@ -127,15 +127,15 @@ class Laby():
         """ Afficher le Labyrinthe"""
         for item in celllist:
             case = pg.image.load(
-                "img/{}{}{}{}.png".format(
+                "img/w{}{}{}{}.png".format(
                     item.doors[0], item.doors[1], item.doors[2], item.doors[3])
             ).convert_alpha()
-            pc.FENETRE.blit(case, (item.x * 32, item.y * 32))
+            pc.FENETRE.blit(case, (item.x * pc.CELL_X, item.y * pc.CELL_Y))
             if item.num == 0:
-                flag = pg.image.load("img/start.png").convert_alpha()
+                flag = pg.image.load("img/startw.png").convert_alpha()
                 pc.FENETRE.blit(flag, (0, 0))
             if item.num == (pc.COTE_X * pc.COTE_Y - 1):
-                end = pg.image.load("img/end.png").convert_alpha()
+                end = pg.image.load("img/endw.png").convert_alpha()
                 pc.FENETRE.blit(
-                    end, ((pc.COTE_X - 1) * 32, (pc.COTE_Y - 1) * 32)
+                    end, ((pc.COTE_X - 1) * pc.CELL_X, (pc.COTE_Y - 1) * pc.CELL_Y)
                 )

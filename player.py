@@ -18,7 +18,7 @@ class Perso():
     def __init__(self, celllist):
         self.celllist = celllist
         self.cell = self.celllist[0]
-        self.perso = pg.image.load("img/p1_down.png").convert_alpha()
+        self.perso = pg.image.load("img/p1_downw.png").convert_alpha()
         self.perso_pos = (self.cell.x, self.cell.y)
 
     def move(self, move):
@@ -32,7 +32,7 @@ class Perso():
         ):
             self.cell = self.celllist[self.cell.num - pc.COTE_X]
             self.perso_pos = (self.cell.x * pc.CELL_X, self.cell.y * pc.CELL_Y)
-            self.perso = pg.image.load("img/p1_up.png").convert_alpha()
+            self.perso = pg.image.load("img/p1_upw.png").convert_alpha()
         elif (
                 move == "down" and
                 self.cell.num + pc.COTE_X <= (pc.COTE_X * pc.COTE_Y) - 1 and
@@ -40,7 +40,7 @@ class Perso():
         ):
             self.cell = self.celllist[self.cell.num + pc.COTE_X]
             self.perso_pos = (self.cell.x * pc.CELL_X, self.cell.y * pc.CELL_Y)
-            self.perso = pg.image.load("img/p1_down.png").convert_alpha()
+            self.perso = pg.image.load("img/p1_downw.png").convert_alpha()
         elif (
                 move == "left" and
                 self.cell.num - 1 >= 0 and
@@ -48,7 +48,7 @@ class Perso():
         ):
             self.cell = self.celllist[self.cell.num - 1]
             self.perso_pos = (self.cell.x * pc.CELL_X, self.cell.y * pc.CELL_Y)
-            self.perso = pg.image.load("img/p1_left.png").convert_alpha()
+            self.perso = pg.image.load("img/p1_leftw.png").convert_alpha()
         elif (
                 move == "right" and
                 self.cell.num + 1 <= (pc.COTE_X * pc.COTE_Y) - 1 and
@@ -56,4 +56,4 @@ class Perso():
         ):
             self.cell = self.celllist[self.cell.num + 1]
             self.perso_pos = (self.cell.x * pc.CELL_X, self.cell.y * pc.CELL_Y)
-            self.perso = pg.image.load("img/p1_right.png").convert_alpha()
+            self.perso = pg.image.load("img/p1_rightw.png").convert_alpha()
