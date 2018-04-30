@@ -129,7 +129,7 @@ class Laby():
             case = pg.image.load(
                 "img/{}{}{}{}.png".format(
                     item.doors[0], item.doors[1], item.doors[2], item.doors[3])
-            ).convert()
+            ).convert_alpha()
             pc.FENETRE.blit(case, (item.x * 32, item.y * 32))
             if item.num == 0:
                 flag = pg.image.load("img/start.png").convert_alpha()

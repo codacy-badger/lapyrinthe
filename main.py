@@ -38,6 +38,7 @@ while CONTINUER:
             if event.key == pg.K_RIGHT:
                 PLAYER.move("right")
 
+    pc.FENETRE.blit(pc.BG0, (0, 0))
     LABY.display(LABY.cell_list)
     pc.FENETRE.blit(PLAYER.perso, PLAYER.perso_pos)
     pg.display.flip()
