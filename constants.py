@@ -11,7 +11,7 @@ img/*.png - cases du Labyrinthe
 
 import pygame as pg
 
-BG0 = pg.image.load("img/bg1.png")
+BG0 = pg.image.load("img/bg0.png")
 # cote_fenetre = fond.get_rect().size
 CELL_X = 40  # taille X des cellules
 CELL_Y = 30  # taille Y des cellules
