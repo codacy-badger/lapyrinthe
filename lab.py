@@ -132,10 +132,10 @@ class Laby():
             ).convert_alpha()
             pc.FENETRE.blit(case, (item.x * pc.CELL_X, item.y * pc.CELL_Y))
             if item.num == 0:
-                flag = pg.image.load("img/startw.png").convert_alpha()
+                flag = pg.image.load("img/wstart.png").convert_alpha()
                 pc.FENETRE.blit(flag, (0, 0))
             if item.num == (pc.COTE_X * pc.COTE_Y - 1):
-                end = pg.image.load("img/endw.png").convert_alpha()
+                end = pg.image.load("img/wend.png").convert_alpha()
                 pc.FENETRE.blit(
                     end, ((pc.COTE_X - 1) * pc.CELL_X, (pc.COTE_Y - 1) * pc.CELL_Y)
                 )
