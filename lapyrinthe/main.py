@@ -10,7 +10,7 @@ img/*.png - cases du Labyrinthe
 """
 
 import pygame as pg
-import time
+import datetime
 import lab
 import player
 import constants as PC
@@ -19,7 +19,7 @@ import constants as PC
 pg.init()
 
 FONT = pg.font.Font('./NotoMono-Regular.ttf', 20)
-START = time.time()
+START = datetime.datetime.now()
 TIME = 0
 
 LABY = lab.Laby()
@@ -30,7 +30,7 @@ PLAYER = player.Perso(LABY.cell_list)
 CONTINUER = 1
 while CONTINUER:
     pg.time.Clock().tick(60)
-    TIME = time.time() - START
+    TIME = datetime.datetime.now() - START
     CHRONO = FONT.render(str(TIME), 1, PC.WHITE)
     for event in pg.event.get():
         if (event.type == pg.QUIT or
