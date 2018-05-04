@@ -12,7 +12,7 @@ img/*.png - cases du Labyrinthe
 import pygame as pg
 import lab
 import player
-import constants as pc
+import constants as PC
 
 
 pg.init()
@@ -38,10 +38,11 @@ while CONTINUER:
             if event.key == pg.K_RIGHT:
                 PLAYER.move("right")
 
-    pc.FENETRE.blit(pc.BG0, (0, 0))
+    PC.FENETRE.blit(PC.BG0, (0, 0))
+    PC.FENETRE.blit(PC.HUD, PC.HUD_COORD)
     LABY.display(LABY.cell_list)
-    pc.FENETRE.blit(PLAYER.perso, PLAYER.perso_pos)
+    PC.FENETRE.blit(PLAYER.perso, PLAYER.perso_pos)
     pg.display.flip()
 
-    if PLAYER.perso_pos == pc.END:
+    if PLAYER.perso_pos == PC.END_COORD:
         CONTINUER = 0
