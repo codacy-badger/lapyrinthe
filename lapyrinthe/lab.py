@@ -11,7 +11,7 @@ img/*.png - cases du Labyrinthe
 
 import random
 import pygame as pg
-import constants as pc
+import constants as PC
 
 
 class Cell():
@@ -41,8 +41,8 @@ class Laby():
         self.ctag = int()
         self.ntag = int()
         number = 0
-        for i in range(0, pc.COTE_Y):
-            for j in range(0, pc.COTE_X):
+        for i in range(0, PC.COTE_Y):
+            for j in range(0, PC.COTE_X):
                 cell = Cell(j, i)
                 cell.num = number
                 cell.tag = number
@@ -89,8 +89,8 @@ class Laby():
     def make_lab(self, celllist):
         """ faire le Labyrinthe """
         self.celltag = [0]
-        while self.celltag.count(self.celltag[0]) < pc.COTE_X * pc.COTE_Y:
-            c = random.randrange(0, pc.COTE_X * pc.COTE_Y)
+        while self.celltag.count(self.celltag[0]) < PC.COTE_X * PC.COTE_Y:
+            c = random.randrange(0, PC.COTE_X * PC.COTE_Y)
             self.celltag.clear()
             N = celllist[c].num
             # les cellules voisines sont stockées dans une liste
@@ -99,22 +99,22 @@ class Laby():
             # à la place de l'objet Cell prévu
             self.neigh = list()
             # Cellule Nord
-            if celllist[c].y > 0 and celllist[c].y < pc.COTE_Y:
-                self.neigh.append(celllist[N - pc.COTE_X])
+            if celllist[c].y > 0 and celllist[c].y < PC.COTE_Y:
+                self.neigh.append(celllist[N - PC.COTE_X])
             else:
                 self.neigh.append("X")
             # Cellule Sud
-            if celllist[c].y >= 0 and celllist[c].y < pc.COTE_Y - 1:
-                self.neigh.append(celllist[N + pc.COTE_X])
+            if celllist[c].y >= 0 and celllist[c].y < PC.COTE_Y - 1:
+                self.neigh.append(celllist[N + PC.COTE_X])
             else:
                 self.neigh.append("X")
             # Cellule Est
-            if celllist[c].x >= 0 and celllist[c].x < pc.COTE_X - 1:
+            if celllist[c].x >= 0 and celllist[c].x < PC.COTE_X - 1:
                 self.neigh.append(celllist[N + 1])
             else:
                 self.neigh.append("X")
             # Cellule Ouest
-            if celllist[c].x > 0 and celllist[c].x < pc.COTE_X:
+            if celllist[c].x > 0 and celllist[c].x < PC.COTE_X:
                 self.neigh.append(celllist[N - 1])
             else:
                 self.neigh.append("X")
@@ -130,10 +130,16 @@ class Laby():
                 "img/path/{}{}{}{}.png".format(
                     item.doors[0], item.doors[1], item.doors[2], item.doors[3])
             ).convert_alpha()
-            pc.FENETRE.blit(case, (item.x * pc.CELL_X, item.y * pc.CELL_Y))
+            PC.FENETRE.blit(case, (item.x * PC.CELL_X, item.y * PC.CELL_Y))
             if item.num == 0:
-                flag = pc.FLAG.convert_alpha()
-                pc.FENETRE.blit(flag, (0, 0))
-            if item.num == (pc.COTE_X * pc.COTE_Y - 1):
-                end = pc.END.convert_alpha()
-                pc.FENETRE.blit(end, pc.END_COORD)
+                flag = PC.FLAG.convert_alpha()
+                PC.FENETRE.blit(flag, (0, 0))
+            if item.num == (PC.COTE_X * PC.COTE_Y - 1):
+                carrot = PC.CARROT
+                PC.FENETRE.blit(carrot, PC.CARROT_COORD)
+            if item.num == (PC.COTE_X - 1):
+                radis = PC.RADIS
+                PC.FENETRE.blit(radis, PC.RADIS_COORD)
+            if item.num == ((PC.COTE_X - 1)  * PC.COTE_Y):
+                salad = PC.SALAD
+                PC.FENETRE.blit(salad, PC.SALAD_COORD)
