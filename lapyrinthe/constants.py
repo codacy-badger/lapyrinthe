@@ -13,11 +13,15 @@ import pygame as pg
 
 # Taille de la fenêtre
 FENETRE = pg.display.set_mode((800, 600))
+ACCUEIL = pg.image.load("img/splash.png").convert_alpha()
+ICONE = pg.image.load("img/player/p_up.png").convert_alpha()
+
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
 # Background image
 BG0 = pg.image.load("img/bg0.png")
+WIN = pg.image.load("img/win.png").convert_alpha()
 
 # HUD
 HUD = pg.image.load("img/hud0.png")
