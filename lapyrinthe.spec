@@ -6,13 +6,7 @@ block_cipher = None
 a = Analysis(['main.py'],
              pathex=['.'],
              binaries=[],
-             datas=[
-             ('./img/*.ttf','img'),
-             ('./img/*.png','img'),
-             ('./img/items/*.png','img/items'),
-             ('./img/path/*.png','img/path'),
-             ('./img/player/*.png','img/player')
-             ],
+             datas=[('./img','img')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],
@@ -24,16 +18,12 @@ pyz = PYZ(a.pure, a.zipped_data,
              cipher=block_cipher)
 exe = EXE(pyz,
           a.scripts,
-          exclude_binaries=True,
+          a.binaries,
+          a.zipfiles,
+          a.datas,
           name='lapyrinthe',
           debug=False,
           strip=False,
           upx=True,
-          console=True )
-coll = COLLECT(exe,
-               a.binaries,
-               a.zipfiles,
-               a.datas,
-               strip=False,
-               upx=True,
-               name='lapyrinthe')
+          runtime_tmpdir=None,
+          console=False )

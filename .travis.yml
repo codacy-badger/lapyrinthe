@@ -4,4 +4,11 @@ python:
 install:
 - pip install -r requirements.txt
 script:
-- pyinstaller -n lapyrinthe -F lapyrinthe.spec
+- pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec
+deploy:
+  provider: releases
+  api_key: "${GITHUB_TOKEN}"
+  file: "./dist/lapyrinthe"
+  skip_cleanup: true
+  on:
+    tags: true

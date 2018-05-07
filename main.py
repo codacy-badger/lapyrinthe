@@ -14,7 +14,12 @@ import datetime
 import lab
 import player
 import constants as PC
+import sys
 
+if getattr(sys, 'frozen', False):
+    basedir = sys._MEIPASS
+else:
+    basedir = sys.executable
 
 pg.init()
 pg.display.set_caption("Lapyrinthe")
@@ -27,7 +32,7 @@ while CONTINUER:
     MENU = 1
     GAME = 0
     WIN = 0
-    FONT = pg.font.Font('./img/NotoMono-Regular.ttf', 20)
+    FONT = pg.font.Font("{}/img/NotoMono-Regular.ttf".format(basedir), 20)
 
     # Menu du jeu
     while MENU:

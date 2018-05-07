@@ -12,7 +12,12 @@ img/*.png - cases du Labyrinthe
 import random
 import pygame as pg
 import constants as PC
+import sys
 
+if getattr(sys, 'frozen', False):
+    basedir = sys._MEIPASS
+else:
+    basedir = sys.executable
 
 class Cell():
     """ Chaque cellule du Labyrinthe """
@@ -127,8 +132,12 @@ class Laby():
         """ Afficher le Labyrinthe """
         for item in celllist:
             case = pg.image.load(
-                "img/path/{}{}{}{}.png".format(
-                    item.doors[0], item.doors[1], item.doors[2], item.doors[3])
+                "{}/img/path/{}{}{}{}.png".format(
+                    basedir,
+                    item.doors[0],
+                    item.doors[1],
+                    item.doors[2],
+                    item.doors[3])
             ).convert_alpha()
             PC.FENETRE.blit(case, (item.x * PC.CELL_X, item.y * PC.CELL_Y))
             if item.num == 0:
