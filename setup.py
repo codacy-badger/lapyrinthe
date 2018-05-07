@@ -15,7 +15,6 @@ setup(
 #    long_description=open('README.rst').read(),
     install_requires=[
         "pygame==1.9.3",
-        "nuitka==0.5.30",
         ],
     include_package_data=True,
     url='https://github.com/ashmonger/lapyrinthe',
@@ -30,6 +29,6 @@ setup(
         "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",  # noqa
         "Topic :: Games/Entertainment :: Puzzle Games",
     ],
-    entry_points={'console_scripts': ['lapyrinthe = lapyrinthe:main']},
+    # entry_points={'console_scripts': ['lapyrinthe = lapyrinthe:main']},
     license="GPLv3",
 )
