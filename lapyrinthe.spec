@@ -4,14 +4,14 @@ block_cipher = None
 
 
 a = Analysis(['main.py'],
-             pathex=['/home/ashmonger/projets/lapyrinthe'],
+             pathex=['.'],
              binaries=[],
              datas=[
-             ('/home/ashmonger/projets/lapyrinthe/img/*.ttf','img'),
-             ('/home/ashmonger/projets/lapyrinthe/img/*.png','img'),
-             ('/home/ashmonger/projets/lapyrinthe/img/items/*.png','img/items'),
-             ('/home/ashmonger/projets/lapyrinthe/img/path/*.png','img/path'),
-             ('/home/ashmonger/projets/lapyrinthe/img/player/*.png','img/player')
+             ('./img/*.ttf','img'),
+             ('./img/*.png','img'),
+             ('./img/items/*.png','img/items'),
+             ('./img/path/*.png','img/path'),
+             ('./img/player/*.png','img/player')
              ],
              hiddenimports=[],
              hookspath=[],
