@@ -124,7 +124,7 @@ class Laby():
                 self.celltag.append(item.tag)
 
     def display(self, celllist):
-        """ Afficher le Labyrinthe"""
+        """ Afficher le Labyrinthe """
         for item in celllist:
             case = pg.image.load(
                 "img/path/{}{}{}{}.png".format(
@@ -134,12 +134,27 @@ class Laby():
             if item.num == 0:
                 flag = PC.FLAG.convert_alpha()
                 PC.FENETRE.blit(flag, (0, 0))
-            if item.num == (PC.COTE_X * PC.COTE_Y - 1):
+            if item.num == (PC.COTE_X * PC.COTE_Y - 1) and PC.CARROT_GOT == 0:
                 carrot = PC.CARROT
                 PC.FENETRE.blit(carrot, PC.CARROT_COORD)
-            if item.num == (PC.COTE_X - 1):
+            if item.num == (PC.COTE_X - 1) and PC.RADIS_GOT == 0:
                 radis = PC.RADIS
                 PC.FENETRE.blit(radis, PC.RADIS_COORD)
-            if item.num == ((PC.COTE_X - 1)  * PC.COTE_Y):
+            if item.num == ((PC.COTE_X - 1) * PC.COTE_Y) and PC.SALAD_GOT == 0:
                 salad = PC.SALAD
                 PC.FENETRE.blit(salad, PC.SALAD_COORD)
+
+    def display_hud(self):
+        """ affichage du HUD """
+        if PC.CARROT_GOT == 1:
+            PC.CARROT_COORD = PC.CARROT_HUD
+            carrot = PC.CARROT
+            PC.FENETRE.blit(carrot, PC.CARROT_COORD)
+        if PC.RADIS_GOT == 1:
+            PC.RADIS_COORD = PC.RADIS_HUD
+            radis = PC.RADIS
+            PC.FENETRE.blit(radis, PC.RADIS_COORD)
+        if PC.SALAD_GOT == 1:
+            PC.SALAD_COORD = PC.SALAD_HUD
+            salad = PC.SALAD
+            PC.FENETRE.blit(salad, PC.SALAD_COORD)

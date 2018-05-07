@@ -20,6 +20,15 @@ class Perso():
         self.perso = PC.P_DOWN
         self.perso_pos = (self.cell.x, self.cell.y)
 
+    def collect(self):
+        """Get item"""
+        if self.perso_pos == PC.CARROT_COORD:
+            PC.CARROT_GOT = 1
+        if self.perso_pos == PC.RADIS_COORD:
+            PC.RADIS_GOT = 1
+        if self.perso_pos == PC.SALAD_COORD:
+            PC.SALAD_GOT = 1
+
     def move(self, move):
         """ pour bouger le personnage en fonction
         de la case où il se trouve

@@ -45,13 +45,18 @@ while CONTINUER:
                 PLAYER.move("left")
             if event.key == pg.K_RIGHT:
                 PLAYER.move("right")
-
+    PLAYER.collect()
     PC.FENETRE.blit(PC.BG0, (0, 0))
     PC.FENETRE.blit(PC.HUD, PC.HUD_COORD)
     PC.FENETRE.blit(CHRONO, (10, 575))
     LABY.display(LABY.cell_list)
+    LABY.display_hud()
     PC.FENETRE.blit(PLAYER.perso, PLAYER.perso_pos)
     pg.display.flip()
 
-    # if PLAYER.perso_pos == PC.C_COORD:
-    #     CONTINUER = 0
+    if (
+        PC.CARROT_GOT == 1 and
+        PC.RADIS_GOT == 1 and
+        PC.SALAD_GOT == 1
+    ):
+        CONTINUER = 0

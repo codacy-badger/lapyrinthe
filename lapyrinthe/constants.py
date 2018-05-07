@@ -32,13 +32,19 @@ COTE_Y = 19  # nombre de cellules en Y
 FLAG = pg.image.load("img/items/flag.png").convert_alpha()
 
 CARROT = pg.image.load("img/items/carrot.png").convert_alpha()
+CARROT_GOT = 0
 CARROT_COORD = (CELL_X * (COTE_X - 1), CELL_Y * (COTE_Y - 1))
+CARROT_HUD = (CELL_X * COTE_X / 2, CELL_Y * COTE_Y)
 
 RADIS = pg.image.load("img/items/radis.png").convert_alpha()
+RADIS_GOT = 0
 RADIS_COORD = (CELL_X * (COTE_X - 1), 0)
+RADIS_HUD = (CELL_X * ((COTE_X / 2) + 1), CELL_Y * COTE_Y)
 
 SALAD = pg.image.load("img/items/salad.png").convert_alpha()
+SALAD_GOT = 0
 SALAD_COORD = (0, CELL_Y * (COTE_Y - 1))
+SALAD_HUD = (CELL_X * ((COTE_X / 2) + 2), CELL_Y * COTE_Y)
 
 # Player images
 P_UP = pg.image.load("img/player/p_up.png").convert_alpha()

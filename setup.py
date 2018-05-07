@@ -15,6 +15,7 @@ setup(
 #    long_description=open('README.rst').read(),
     install_requires=[
         "pygame==1.9.3",
+        "nuitka==0.5.30",
         ],
     include_package_data=True,
     url='https://github.com/ashmonger/lapyrinthe',
