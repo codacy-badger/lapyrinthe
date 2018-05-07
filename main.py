@@ -27,7 +27,7 @@ while CONTINUER:
     MENU = 1
     GAME = 0
     WIN = 0
-    FONT = pg.font.Font('./NotoMono-Regular.ttf', 20)
+    FONT = pg.font.Font('./img/NotoMono-Regular.ttf', 20)
 
     # Menu du jeu
     while MENU:
@@ -61,10 +61,10 @@ while CONTINUER:
         pg.time.Clock().tick(60)
         TIME = datetime.datetime.now() - START
         CHRONO = FONT.render(str(TIME.seconds), 1, PC.WHITE)
-        if (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
-            MENU = 1
-            GAME = 0
         for event in pg.event.get():
+            if (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
+                MENU = 1
+                GAME = 0
             if event.type == pg.KEYDOWN:
                 if event.key == pg.K_UP:
                     PLAYER.move("up")
