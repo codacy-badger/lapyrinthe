@@ -53,6 +53,12 @@ clone_folder: c:\projects\myproject
 # fetch repository as zip archive
 shallow_clone: false                 # default is "false"
 
+global:
+    # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
+    # /E:ON and /V:ON options are not enabled in the batch script intepreter
+    # See: http://stackoverflow.com/a/13751649/163740
+    WITH_COMPILER: "cmd /E:ON /V:ON /C .\\.appveyor\\run_with_compiler.cmd"
+
 environment:
 
   matrix:
@@ -69,8 +75,7 @@ install:
   - "%PYTHON%\\python.exe -m pip install -r requirements.txt"
 
 build_script:
-  - "dir"
-  - "%PYTHON%\\python.exe -m pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec"
+  - "%WITH_COMPILER% pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec"
 
 artifacts:
   # bdist_wheel puts your built wheel in the dist directory
@@ -102,12 +107,12 @@ deploy:
 #         notifications           #
 #---------------------------------#
 
-notifications:
-
-  # Email
-  - provider: Email
-    to:
-      - jeremy.collin.lnk@gmail.com
-    subject: 'Build {{status}}'                  # optional
-    message: "{{message}}, {{commitId}}, ..."    # optional
-    on_build_status_changed: true
+# notifications:
+#
+#   # Email
+#   - provider: Email
+#     to:
+#       - jeremy.collin.lnk@gmail.com
+#     subject: 'Build {{status}}'                  # optional
+#     message: "{{message}}, {{commitId}}, ..."    # optional
+#     on_build_status_changed: true
