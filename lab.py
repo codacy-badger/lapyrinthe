@@ -156,14 +156,11 @@ class Laby():
     def display_hud(self):
         """ affichage du HUD """
         if PC.CARROT_GOT == 1:
-            PC.CARROT_COORD = PC.CARROT_HUD
             carrot = PC.CARROT
-            PC.FENETRE.blit(carrot, PC.CARROT_COORD)
+            PC.FENETRE.blit(carrot, PC.CARROT_HUD)
         if PC.RADIS_GOT == 1:
-            PC.RADIS_COORD = PC.RADIS_HUD
             radis = PC.RADIS
-            PC.FENETRE.blit(radis, PC.RADIS_COORD)
+            PC.FENETRE.blit(radis, PC.RADIS_HUD)
         if PC.SALAD_GOT == 1:
-            PC.SALAD_COORD = PC.SALAD_HUD
             salad = PC.SALAD
-            PC.FENETRE.blit(salad, PC.SALAD_COORD)
+            PC.FENETRE.blit(salad, PC.SALAD_HUD)

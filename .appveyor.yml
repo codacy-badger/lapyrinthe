@@ -3,7 +3,7 @@
 #---------------------------------#
 
 # version format
-version: 1.0.{build}
+version: 0.0.3.{build}
 
 # branches to build
 branches:
@@ -23,7 +23,6 @@ max_jobs: 1
 #    environment configuration    #
 #---------------------------------#
 
-# Build worker image (VM template)
 image: Visual Studio 2015
 
 init:
@@ -32,9 +31,6 @@ init:
 
 # clone directory
 clone_folder: c:\projects\myproject
-
-# fetch repository as zip archive
-shallow_clone: false                 # default is "false"
 
 environment:
   matrix:
@@ -47,35 +43,17 @@ build_script:
   - pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec"
 
 artifacts:
-  - path: dist
+  - path: dist/*
 
 #---------------------------------#
 #     deployment configuration    #
 #---------------------------------#
 
-# providers: Local, FTP, WebDeploy, AzureCS, AzureBlob, S3, NuGet, Environment
-# provider names are case-sensitive!
-deploy: off
-
-    # Deploy to GitHub Releases
-  # - provider: GitHub
-  #   artifact: /.*\.exe/           # upload all NuGet packages to release assets
-  #   draft: false
-  #   prerelease: false
-  #   on:
-  #     branch: master                # release from master branch only
-  #     appveyor_repo_tag: true       # deploy on tag push only
-
-#---------------------------------#
-#         notifications           #
-#---------------------------------#
-
-# notifications:
-#
-#   # Email
-#   - provider: Email
-#     to:
-#       - jeremy.collin.lnk@gmail.com
-#     subject: 'Build {{status}}'                  # optional
-#     message: "{{message}}, {{commitId}}, ..."    # optional
-#     on_build_status_changed: true
+deploy:
+  - provider: GitHub
+    artifact: /.*\.exe/           # upload all NuGet packages to release assets
+    draft: false
+    prerelease: false
+    on:
+      branch: master                # release from master branch only
+      appveyor_repo_tag: true       # deploy on tag push only

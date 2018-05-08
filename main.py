@@ -99,6 +99,9 @@ while CONTINUER:
 
     while WIN:
         WIN_TXT = FONT.render("Time:", 1, PC.WHITE)
+        PC.CARROT_GOT = 0
+        PC.RADIS_GOT = 0
+        PC.SALAD_GOT = 0
         for event in pg.event.get():
             if (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 MENU = 1
