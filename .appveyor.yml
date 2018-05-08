@@ -53,22 +53,11 @@ clone_folder: c:\projects\myproject
 # fetch repository as zip archive
 shallow_clone: false                 # default is "false"
 
-global:
-    # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
-    # /E:ON and /V:ON options are not enabled in the batch script intepreter
-    # See: http://stackoverflow.com/a/13751649/163740
-    WITH_COMPILER: "cmd /E:ON /V:ON /C .\\.appveyor\\run_with_compiler.cmd"
-
 environment:
 
   matrix:
-
-    # For Python versions available on Appveyor, see
-    # http://www.appveyor.com/docs/installed-software#python
-    # The list here is complete (excluding Python 2.6, which
-    # isn't covered by this document) at the time of writing.
-
     - PYTHON: "C:\\Python36-x64"
+    - WITH_COMPILER: "cmd /E:ON /V:ON /C .\\.appveyor\\run_with_compiler.cmd"
 
 install:
   # We need wheel installed to build wheels
@@ -78,13 +67,7 @@ build_script:
   - "%WITH_COMPILER% pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec"
 
 artifacts:
-  # bdist_wheel puts your built wheel in the dist directory
   - path: dist\*
-
-#on_success:
-#  You can use this step to upload your artifacts to a public website.
-#  See Appveyor's documentation for more details. Or you can simply
-#  access your wheels from the Appveyor "artifacts" tab for your build.
 
 #---------------------------------#
 #     deployment configuration    #
