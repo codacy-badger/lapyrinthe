@@ -29,9 +29,9 @@ image: Visual Studio 2015
 init:
   - git config --global core.autocrlf input
   - cmd: >-
-    ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%
+    ECHO %PYTHON% %PYTHON_VERSION% %PYTHON_ARCH%:
 
-    SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
+    SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%:
 
 # clone directory
 clone_folder: c:\projects\myproject
