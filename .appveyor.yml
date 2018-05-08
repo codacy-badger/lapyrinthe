@@ -37,6 +37,9 @@ environment:
   - PYTHON: C:\Python36-x64
     PYTHON_VERSION: 3.6.5
     PYTHON_ARCH: 64
+  - PYTHON: C:\Python36
+    PYTHON_VERSION: 3.6.5
+    PYTHON_ARCH: 32
 
 build_script:
   - pip install -r requirements.txt
