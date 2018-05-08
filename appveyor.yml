@@ -66,10 +66,11 @@ environment:
 
 install:
   # We need wheel installed to build wheels
-  - "%PYTHON%\\python.exe -m pip install -r %clone_folder%\\requirements.txt"
+  - "%PYTHON%\\python.exe -m pip install -r requirements.txt"
 
 build_script:
-  - "build.cmd %PYTHON%\\python.exe -m pyinstaller -F -w -n lapyrinthe --clean %clone_folder%\\lapyrinthe.spec"
+  - "dir"
+  - "build.cmd %PYTHON%\\python.exe -m pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec"
 
 artifacts:
   # bdist_wheel puts your built wheel in the dist directory
