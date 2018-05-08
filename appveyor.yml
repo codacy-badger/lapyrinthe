@@ -70,7 +70,7 @@ install:
 
 build_script:
   - "dir"
-  - "build.cmd %PYTHON%\\python.exe -m pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec"
+  - "%PYTHON%\\python.exe -m pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec"
 
 artifacts:
   # bdist_wheel puts your built wheel in the dist directory
