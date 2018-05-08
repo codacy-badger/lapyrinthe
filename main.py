@@ -19,7 +19,7 @@ import sys
 if getattr(sys, 'frozen', False):
     basedir = sys._MEIPASS
 else:
-    basedir = sys.executable
+    basedir = "."
 
 pg.init()
 pg.display.set_caption("Lapyrinthe")

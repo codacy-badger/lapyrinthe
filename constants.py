@@ -15,7 +15,7 @@ import sys
 if getattr(sys, 'frozen', False):
     basedir = sys._MEIPASS
 else:
-    basedir = sys.executable
+    basedir = "."
 
 # Taille de la fenêtre
 FENETRE = pg.display.set_mode((800, 600))

@@ -17,7 +17,7 @@ import sys
 if getattr(sys, 'frozen', False):
     basedir = sys._MEIPASS
 else:
-    basedir = sys.executable
+    basedir = "."
 
 class Cell():
     """ Chaque cellule du Labyrinthe """
