@@ -57,7 +57,7 @@ deploy:
     description: 'Lapyrinthe'
     artifact: /.*\.exe/
     auth_token:
-      secure: ${GITHUB_TOKEN}
+      secure: ZzAkDVtw2SmgOnO6xlBy5htODrHrVCiXVHi+i3/Y7QSxx04Mso1j2Mw32myY+oL4
     on:
       branch: master                # release from master branch only
       appveyor_repo_tag: true       # deploy on tag push only
