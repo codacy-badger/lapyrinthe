@@ -11,6 +11,7 @@ img/*.png - cases du Labyrinthe
 
 import pygame as pg
 import sys
+import pickle
 
 if getattr(sys, 'frozen', False):
     basedir = sys._MEIPASS
@@ -18,12 +19,23 @@ else:
     basedir = "."
 
 # Taille de la fenêtre
-FENETRE = pg.display.set_mode((800, 600))
+FENETRE = pg.display.set_mode((800, 600), pg.HWSURFACE | pg.DOUBLEBUF)
 ACCUEIL = pg.image.load("{}/img/splash.png".format(basedir)).convert_alpha()
 ICONE = pg.image.load("{}/img/player/p_up.png".format(basedir)).convert_alpha()
 
+# Colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
+
+# Scores
+try:
+    open('scores.dat', 'rb')
+except FileNotFoundError:
+    l_scores = list()
+    pickle.dump(l_scores, open('scores.dat', 'wb'))
+    SCORES = pickle.load(open('scores.dat', 'rb'))
+else:
+    SCORES = pickle.load(open('scores.dat', 'rb'))
 
 # Background image
 BG0 = pg.image.load("{}/img/bg0.png".format(basedir))
@@ -39,6 +51,7 @@ CELL_Y = 30  # taille Y des cellules
 COTE_X = 20  # nombre de cellules en X
 COTE_Y = 19  # nombre de cellules en Y
 
+# Items
 FLAG = pg.image.load("{}/img/items/flag.png".format(basedir)).convert_alpha()
 
 CARROT = pg.image.load("{}/img/items/carrot.png".format(basedir)).convert_alpha()

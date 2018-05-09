@@ -15,6 +15,7 @@ import lab
 import player
 import constants as PC
 import sys
+import pickle
 
 if getattr(sys, 'frozen', False):
     basedir = sys._MEIPASS
@@ -67,6 +68,11 @@ while CONTINUER:
         TIME = datetime.datetime.now() - START
         CHRONO = FONT.render(str(TIME.seconds), 1, PC.WHITE)
         for event in pg.event.get():
+            if (event.type == pg.QUIT):
+                CONTINUER = 0
+                MENU = 0
+                GAME = 0
+                WIN = 0
             if (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 MENU = 1
                 GAME = 0
@@ -98,16 +104,37 @@ while CONTINUER:
             WIN = 1
 
     while WIN:
-        WIN_TXT = FONT.render("Time:", 1, PC.WHITE)
-        PC.CARROT_GOT = 0
-        PC.RADIS_GOT = 0
-        PC.SALAD_GOT = 0
         for event in pg.event.get():
             if (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 MENU = 1
                 GAME = 0
                 WIN = 0
+                PC.CARROT_GOT = 0
+                PC.RADIS_GOT = 0
+                PC.SALAD_GOT = 0
+
+        PC.FENETRE.blit(PC.BG0, (0, 0))
         PC.FENETRE.blit(PC.WIN, (0, 0))
-        PC.FENETRE.blit(WIN_TXT, (350, 300))
-        PC.FENETRE.blit(CHRONO, (450, 300))
+        try:
+            PC.SCORES[0]
+        except IndexError:
+            WIN_TXT = FONT.render("First Score:", 1, PC.WHITE)
+            PC.SCORES.append(TIME.seconds)
+        else:
+            if int(TIME.seconds) <= PC.SCORES[0]:
+                WIN_TXT = FONT.render("NEW HIGH SCORE:", 1, PC.WHITE)
+                PC.FENETRE.blit(WIN_TXT, (250, 300))
+                PC.FENETRE.blit(CHRONO, (450, 300))
+                PC.SCORES.append(TIME.seconds)
+                pickle.dump(PC.SCORES, open('scores.dat', 'wb'))
+            else:
+                WIN_TXT = FONT.render("Time:", 1, PC.WHITE)
+                BEST = "Best : {}".format(str(PC.SCORES[0]))
+                BST_TXT = FONT.render(BEST, 1, PC.WHITE)
+                PC.FENETRE.blit(WIN_TXT, (300, 250))
+                PC.FENETRE.blit(CHRONO, (450, 250))
+                PC.FENETRE.blit(BST_TXT, (350, 350))
+
         pg.display.flip()
+
+pg.quit()
