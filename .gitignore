@@ -1,5 +1,10 @@
 # Customs
 scores.dat
+img/*.kra-autosave.kra
+img/*.png~
+img/items/*.png~
+img/path/*.png~
+img/player/*.png~
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
