@@ -26,6 +26,7 @@ pg.init()
 pg.display.set_caption("Lapyrinthe")
 pg.display.set_icon(PC.ICONE)
 
+
 CONTINUER = 1
 while CONTINUER:
     PC.FENETRE.blit(PC.ACCUEIL, (0, 0))
@@ -105,6 +106,11 @@ while CONTINUER:
 
     while WIN:
         for event in pg.event.get():
+            if (event.type == pg.QUIT):
+                CONTINUER = 0
+                MENU = 0
+                GAME = 0
+                WIN = 0
             if (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 MENU = 1
                 GAME = 0

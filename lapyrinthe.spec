@@ -2,7 +2,6 @@
 
 block_cipher = None
 
-
 a = Analysis(['main.py'],
              pathex=['.'],
              binaries=[],
@@ -12,6 +11,7 @@ a = Analysis(['main.py'],
               ('./img/items/*.png','img/items'),
               ('./img/path/*.png','img/path'),
               ('./img/player/*.png','img/player')
+              ('./sfx','sfx')
             ],
              hiddenimports=[],
              hookspath=[],

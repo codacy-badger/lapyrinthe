@@ -24,10 +24,13 @@ class Perso():
         """Get item"""
         if self.perso_pos == PC.CARROT_COORD:
             PC.CARROT_GOT = 1
+            PC.ITEM.play()
         if self.perso_pos == PC.RADIS_COORD:
             PC.RADIS_GOT = 1
+            PC.ITEM.play()
         if self.perso_pos == PC.SALAD_COORD:
             PC.SALAD_GOT = 1
+            PC.ITEM.play()
 
     def move(self, move):
         """ pour bouger le personnage en fonction
@@ -38,6 +41,7 @@ class Perso():
                 self.cell.num - PC.COTE_X >= 0 and
                 self.cell.doors[0] == 1
         ):
+            PC.JUMP.play()
             self.cell = self.celllist[self.cell.num - PC.COTE_X]
             self.perso_pos = (self.cell.x * PC.CELL_X, self.cell.y * PC.CELL_Y)
             self.perso = PC.P_UP
@@ -46,6 +50,7 @@ class Perso():
                 self.cell.num + PC.COTE_X <= (PC.COTE_X * PC.COTE_Y) - 1 and
                 self.cell.doors[1] == 1
         ):
+            PC.JUMP.play()
             self.cell = self.celllist[self.cell.num + PC.COTE_X]
             self.perso_pos = (self.cell.x * PC.CELL_X, self.cell.y * PC.CELL_Y)
             self.perso = PC.P_DOWN
@@ -54,6 +59,7 @@ class Perso():
                 self.cell.num - 1 >= 0 and
                 self.cell.doors[3] == 1
         ):
+            PC.JUMP.play()
             self.cell = self.celllist[self.cell.num - 1]
             self.perso_pos = (self.cell.x * PC.CELL_X, self.cell.y * PC.CELL_Y)
             self.perso = PC.P_LEFT
@@ -62,6 +68,7 @@ class Perso():
                 self.cell.num + 1 <= (PC.COTE_X * PC.COTE_Y) - 1 and
                 self.cell.doors[2] == 1
         ):
+            PC.JUMP.play()
             self.cell = self.celllist[self.cell.num + 1]
             self.perso_pos = (self.cell.x * PC.CELL_X, self.cell.y * PC.CELL_Y)
             self.perso = PC.P_RIGHT
