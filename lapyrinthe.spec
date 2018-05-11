@@ -10,8 +10,8 @@ a = Analysis(['main.py'],
               ('./img/*.ttf','img'),
               ('./img/items/*.png','img/items'),
               ('./img/path/*.png','img/path'),
-              ('./img/player/*.png','img/player')
-              ('./sfx','sfx')
+              ('./img/player/*.png','img/player'),
+              ('./sfx','sfx'),
             ],
              hiddenimports=[],
              hookspath=[],
