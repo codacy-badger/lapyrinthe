@@ -47,6 +47,9 @@ else:
 BG0 = pg.image.load("{}/img/bg0.png".format(basedir))
 WIN = pg.image.load("{}/img/win.png".format(basedir)).convert_alpha()
 
+# Music
+pg.mixer.music.load("{}/sfx/Nicolai_Heidlas-Take_The_Chance.ogg".format(basedir))
+
 # HUD
 HUD = pg.image.load("{}/img/hud0.png".format(basedir))
 HUD_COORD = (0, 570)

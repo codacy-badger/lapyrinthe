@@ -14,6 +14,7 @@ For Linux and Windows
 ### Credits
 The code and GFX are GPLv3
 The SFX are CC0
+The music is CCBY
 
 #### code
 * Ashmonger
@@ -24,3 +25,6 @@ The SFX are CC0
 #### SFX
 * [Jalastram](https://opengameart.org/users/jalastram)
 * [Kastenfrosch](https://freesound.org/people/Kastenfrosch/)
+
+#### Music
+* [Nicolai Heidlas](https://soundcloud.com/nicolai-heidlas) - [Take The Chance](https://cchound.com/post/173312518210/source-soundcloud-author-nicolai-heidlas-cc)

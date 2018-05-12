@@ -26,6 +26,8 @@ pg.init()
 pg.display.set_caption("Lapyrinthe")
 pg.display.set_icon(PC.ICONE)
 
+pg.mixer.music.play()
+pg.mixer.music.set_volume(0.5)
 
 CONTINUER = 1
 while CONTINUER:
