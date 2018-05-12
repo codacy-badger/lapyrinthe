@@ -17,7 +17,7 @@ before_install: |
     brew install openssl readline
     brew outdated pyenv || brew upgrade pyenv
     brew install pyenv-virtualenv
-    pyenv install $PYTHON --enable-framework
+    env PYTHON_CONFIGURE_OPTS="--enable-framework" pyenv install $PYTHON
     export PYENV_VERSION=$PYTHON
     export PATH="/Users/travis/.pyenv/shims:${PATH}"
     pyenv-virtualenv venv
