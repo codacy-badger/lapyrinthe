@@ -12,13 +12,13 @@ matrix:
     env: PYTHON=3.6.0
 
 before_install: |
-  if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+  if [ "${TRAVIS_OS_NAME}" == "osx" ]; then
     brew update
     brew install openssl readline
     brew outdated pyenv || brew upgrade pyenv
     brew install pyenv-virtualenv
-    env PYTHON_CONFIGURE_OPTS="--enable-framework" pyenv install $PYTHON
-    export PYENV_VERSION=$PYTHON
+    env PYTHON_CONFIGURE_OPTS="--enable-framework" pyenv install ${PYTHON}
+    export PYENV_VERSION=${PYTHON}
     export PATH="/Users/travis/.pyenv/shims:${PATH}"
     pyenv-virtualenv venv
     source venv/bin/activate
@@ -28,7 +28,7 @@ before_install: |
 install:
   - pip install -r requirements.txt
 script:
-  - pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec
+  - pyinstaller -F -w -n lapyrinthe_${TRAVIS_OS_NAME} --clean lapyrinthe.spec
 deploy:
   provider: releases
   api_key: "${GITHUB_TOKEN}"
