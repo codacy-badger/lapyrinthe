@@ -27,7 +27,7 @@ pg.mixer.init()
 # Taille de la fenêtre
 FENETRE = pg.display.set_mode((800, 600), pg.HWSURFACE | pg.DOUBLEBUF)
 ACCUEIL = pg.image.load("{}/img/splash.png".format(basedir)).convert_alpha()
-ICONE = pg.image.load("{}/img/player/p_up.png".format(basedir)).convert_alpha()
+ICONE = pg.image.load("{}/img/icon.png".format(basedir)).convert_alpha()
 
 # Colors
 WHITE = (255, 255, 255)

@@ -17,7 +17,7 @@ class Perso():
     def __init__(self, celllist):
         self.celllist = celllist
         self.cell = self.celllist[0]
-        self.perso = PC.P_DOWN
+        self.perso = PC.P_RIGHT
         self.perso_pos = (self.cell.x, self.cell.y)
 
     def collect(self):

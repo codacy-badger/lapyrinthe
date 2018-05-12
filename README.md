@@ -12,9 +12,9 @@ For Linux and Windows
 * _Win_ : eat all the food!
 
 ### Credits
-The code and GFX are GPLv3
-The SFX are CC0
-The music is CCBY
+* The code and GFX are GPLv3
+* The SFX are CC0
+* The music is CCBY
 
 #### code
 * Ashmonger
