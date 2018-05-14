@@ -19,6 +19,7 @@ if getattr(sys, 'frozen', False):
 else:
     basedir = "."
 
+
 class Cell():
     """ Chaque cellule du Labyrinthe """
     def __init__(self, x, y):
@@ -128,6 +129,7 @@ class Laby():
             for item in celllist:
                 self.celltag.append(item.tag)
 
+    @classmethod
     def display(self, celllist):
         """ Afficher le Labyrinthe """
         for item in celllist:
@@ -153,6 +155,7 @@ class Laby():
                 salad = PC.SALAD
                 PC.FENETRE.blit(salad, PC.SALAD_COORD)
 
+    @classmethod
     def display_hud(self):
         """ affichage du HUD """
         if PC.CARROT_GOT == 1:

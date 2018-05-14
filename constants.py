@@ -21,7 +21,7 @@ else:
 
 # Mixer Pre-Init
 # pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=512)
-pg.mixer.pre_init(44100, -16, 2, 512)
+pg.mixer.pre_init(44100, -16, 2, 1024)
 pg.mixer.init()
 
 # Taille de la fenêtre
@@ -48,7 +48,9 @@ BG0 = pg.image.load("{}/img/bg0.png".format(basedir))
 WIN = pg.image.load("{}/img/win.png".format(basedir)).convert_alpha()
 
 # Music
-pg.mixer.music.load("{}/sfx/Nicolai_Heidlas-Take_The_Chance.ogg".format(basedir))
+pg.mixer.music.load(
+    "{}/sfx/Nicolai_Heidlas-Take_The_Chance.ogg".format(basedir)
+)
 
 # HUD
 HUD = pg.image.load("{}/img/hud0.png".format(basedir))
@@ -63,17 +65,23 @@ COTE_Y = 19  # nombre de cellules en Y
 # Items images
 FLAG = pg.image.load("{}/img/items/flag.png".format(basedir)).convert_alpha()
 
-CARROT = pg.image.load("{}/img/items/carrot.png".format(basedir)).convert_alpha()
+CARROT = pg.image.load(
+    "{}/img/items/carrot.png".format(basedir)
+).convert_alpha()
 CARROT_GOT = 0
 CARROT_COORD = (CELL_X * (COTE_X - 1), CELL_Y * (COTE_Y - 1))
 CARROT_HUD = (CELL_X * COTE_X / 2, CELL_Y * COTE_Y)
 
-RADIS = pg.image.load("{}/img/items/radis.png".format(basedir)).convert_alpha()
+RADIS = pg.image.load(
+    "{}/img/items/radis.png".format(basedir)
+).convert_alpha()
 RADIS_GOT = 0
 RADIS_COORD = (CELL_X * (COTE_X - 1), 0)
 RADIS_HUD = (CELL_X * ((COTE_X / 2) + 1), CELL_Y * COTE_Y)
 
-SALAD = pg.image.load("{}/img/items/salad.png".format(basedir)).convert_alpha()
+SALAD = pg.image.load(
+    "{}/img/items/salad.png".format(basedir)
+).convert_alpha()
 SALAD_GOT = 0
 SALAD_COORD = (0, CELL_Y * (COTE_Y - 1))
 SALAD_HUD = (CELL_X * ((COTE_X / 2) + 2), CELL_Y * COTE_Y)
@@ -82,10 +90,18 @@ SALAD_HUD = (CELL_X * ((COTE_X / 2) + 2), CELL_Y * COTE_Y)
 ITEM = pg.mixer.Sound("{}/sfx/item.ogg".format(basedir))
 
 # Player images
-P_UP = pg.image.load("{}/img/player/p_up.png".format(basedir)).convert_alpha()
-P_DOWN = pg.image.load("{}/img/player/p_down.png".format(basedir)).convert_alpha()
-P_LEFT = pg.image.load("{}/img/player/p_left.png".format(basedir)).convert_alpha()
-P_RIGHT = pg.image.load("{}/img/player/p_right.png".format(basedir)).convert_alpha()
+P_UP = pg.image.load(
+    "{}/img/player/p_up.png".format(basedir)
+).convert_alpha()
+P_DOWN = pg.image.load(
+    "{}/img/player/p_down.png".format(basedir)
+).convert_alpha()
+P_LEFT = pg.image.load(
+    "{}/img/player/p_left.png".format(basedir)
+).convert_alpha()
+P_RIGHT = pg.image.load(
+    "{}/img/player/p_right.png".format(basedir)
+).convert_alpha()
 
 # Player sounds
 JUMP = pg.mixer.Sound("{}/sfx/jump.ogg".format(basedir))
