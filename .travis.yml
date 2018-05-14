@@ -28,12 +28,12 @@ before_install: |
 install:
   - pip install -r requirements.txt
 script:
-  - pyinstaller -F -w -n "lapyrinthe_${TRAVIS_OS_NAME}" --clean lapyrinthe.spec
-  - ls build/
+  - pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec
+  - mv build/lapyrinthe build/lapyrinthe_${TRAVIS_OS_NAME}
 deploy:
   provider: releases
   api_key: "${GITHUB_TOKEN}"
-  file: "./dist/lapyrinthe"
+  file: "./dist/lapyrinthe*"
   skip_cleanup: true
   on:
     tags: true
