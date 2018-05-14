@@ -30,8 +30,8 @@ install:
 
 script:
   - pyinstaller -F -w -n lapyrinthe --clean lapyrinthe.spec
-  - mv build/lapyrinthe build/lapyrinthe_${TRAVIS_OS_NAME}
-  - ls build
+  - mv dist/lapyrinthe dist/lapyrinthe_${TRAVIS_OS_NAME}
+  - ls dist
   
 deploy:
   provider: releases
