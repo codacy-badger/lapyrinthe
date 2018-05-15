@@ -70,21 +70,21 @@ CARROT = pg.image.load(
 ).convert_alpha()
 CARROT_GOT = 0
 CARROT_COORD = (CELL_X * (COTE_X - 1), CELL_Y * (COTE_Y - 1))
-CARROT_HUD = (CELL_X * COTE_X / 2, CELL_Y * COTE_Y)
+CARROT_HUD = (CELL_X * (COTE_X - 3), CELL_Y * COTE_Y)
 
 RADIS = pg.image.load(
     "{}/img/items/radis.png".format(basedir)
 ).convert_alpha()
 RADIS_GOT = 0
 RADIS_COORD = (CELL_X * (COTE_X - 1), 0)
-RADIS_HUD = (CELL_X * ((COTE_X / 2) + 1), CELL_Y * COTE_Y)
+RADIS_HUD = (CELL_X * (COTE_X - 2), CELL_Y * COTE_Y)
 
 SALAD = pg.image.load(
     "{}/img/items/salad.png".format(basedir)
 ).convert_alpha()
 SALAD_GOT = 0
 SALAD_COORD = (0, CELL_Y * (COTE_Y - 1))
-SALAD_HUD = (CELL_X * ((COTE_X / 2) + 2), CELL_Y * COTE_Y)
+SALAD_HUD = (CELL_X * (COTE_X - 1), CELL_Y * COTE_Y)
 
 # Items sounds
 ITEM = pg.mixer.Sound("{}/sfx/item.ogg".format(basedir))
