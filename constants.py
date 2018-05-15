@@ -11,7 +11,7 @@ img/*.png - cases du Labyrinthe
 
 import pygame as pg
 import sys
-import pickle
+import json
 
 
 if getattr(sys, 'frozen', False):
@@ -35,13 +35,13 @@ BLACK = (0, 0, 0)
 
 # Scores
 try:
-    open('scores.dat', 'rb')
+    open('scores.dat', 'r')
 except FileNotFoundError:
-    l_scores = list()
-    pickle.dump(l_scores, open('scores.dat', 'wb'))
-    SCORES = pickle.load(open('scores.dat', 'rb'))
+    l_scores = {'hard': 9999, 'easy': 9999, 'medium': 9999}
+    json.dump(l_scores, open('scores.dat', 'w'))
+    SCORES = json.load(open('scores.dat', 'r'))
 else:
-    SCORES = pickle.load(open('scores.dat', 'rb'))
+    SCORES = json.load(open('scores.dat', 'r'))
 
 # Background image
 BG0 = pg.image.load("{}/img/bg0.png".format(basedir))

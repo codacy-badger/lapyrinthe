@@ -15,7 +15,7 @@ import lab
 import player
 import constants as PC
 import sys
-import pickle
+import json
 
 if getattr(sys, 'frozen', False):
     basedir = sys._MEIPASS
@@ -124,20 +124,20 @@ while CONTINUER:
         PC.FENETRE.blit(PC.BG0, (0, 0))
         PC.FENETRE.blit(PC.WIN, (0, 0))
         try:
-            PC.SCORES[0]
+            PC.SCORES['medium']
         except IndexError:
             WIN_TXT = FONT.render("First Score:", 1, PC.WHITE)
             PC.SCORES.append(TIME.seconds)
         else:
-            if int(TIME.seconds) <= PC.SCORES[0]:
+            if int(TIME.seconds) <= PC.SCORES['medium']:
                 WIN_TXT = FONT.render("NEW HIGH SCORE:", 1, PC.WHITE)
                 PC.FENETRE.blit(WIN_TXT, (250, 300))
                 PC.FENETRE.blit(CHRONO, (450, 300))
-                PC.SCORES.append(TIME.seconds)
-                pickle.dump(PC.SCORES, open('scores.dat', 'wb'))
+                PC.SCORES['medium'] = int(TIME.seconds)
+                json.dump(PC.SCORES, open('scores.dat', 'w'))
             else:
                 WIN_TXT = FONT.render("Time:", 1, PC.WHITE)
-                BEST = "Best : {}".format(str(PC.SCORES[0]))
+                BEST = "Best : {}".format(str(PC.SCORES['medium']))
                 BST_TXT = FONT.render(BEST, 1, PC.WHITE)
                 PC.FENETRE.blit(WIN_TXT, (300, 250))
                 PC.FENETRE.blit(CHRONO, (450, 250))
